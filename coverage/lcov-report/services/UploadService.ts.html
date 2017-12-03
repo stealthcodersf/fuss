@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for services/UploadService.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">services</a> UploadService.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">51.61% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>48/93</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40.63% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>13/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.11% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>16/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>45/90</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { File } from "multiparty";
+import ScanResult, { AVResult, ScanResultModel } from "../models/ScanResult";
+import Application, { ApplicationModel } from "../models/Application";
+import * as async from "async";
+import { ForwardConfigModel } from "../models/ForwardConfig";
+import ForwardService from "./ForwardService";
+import ForwardServiceFactory from "./ForwardServiceFactory";
+import User, { UserModel } from "./../models/User";
+import Subscription, { SubscriptionModel } from "../models/Subscription";
+import { AntiVirusTierModel } from "../models/AntiVirusTier";
+import Plan, {PlanModel} from "../models/Plan";
+import ScanServiceFactory from "./ScanServiceFactory";
+import ScanService from "./ScanService";
+import ApplicationError from "../util/applicationError";
+&nbsp;
+export default class UploadService {
+&nbsp;
+    constructor(private appId: string, private files: File[]) {}
+&nbsp;
+    scanFiles(scanResults: ScanResultModel[]): Promise&lt;ScanResultModel[]&gt; {
+        return new Promise((resolve, reject) =&gt; {
+            if (!scanResults || scanResults.length === 0) reject(new Error("Invalid input to scan files function"));
+            const files: string [] = scanResults.map((scanResult: ScanResultModel) =&gt; { return scanResult.fileName; } );
+            this.getAntiVirusTier()
+                .then((antiVirusTier: AntiVirusTierModel) =&gt; {
+                    async.map(antiVirusTier.antiViruses, (antiVirus: string, callback) =&gt; {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>const scanService: ScanService = ScanServiceFactory.getScanService(antiVirus);
+                        scan<span class="cstat-no" title="statement not covered" >Service.scanFil</span>es(files.slice(0), (err: Error, results: any) =&gt; {
+                           if (err) callback(err);
+                           else {
+                               Object.keys(results).forEach((property: string) =&gt; {
+                                   const scanResult: ScanResultMod<span class="branch-1 cbranch-no" title="branch not covered" >el </span>= scanResults.filter((sr: ScanResultModel) =&gt; { return sr.fileName === property; }).pop();
+                                   const scans: AVResult[] = scanResult.scans || [];
+                                   const avResult: AVResult = { av: antiVirus, result: results[property]};
+                                   scans.push(avResult);
+                                   scanResult.scans = scans;
+                               });
+                               callback();
+                           }
+                        });
+                    <span class="missing-if-branch" title="if path not taken" >I</span>}, (err: Error) =&gt; {
+<span class="cstat-no" title="statement not covered" >                        if (err) reje</span>ct(err);
+                        else {
+                            resolve(scanResults);
+                        }
+                    });
+                })
+                .catch(<span class="fstat-no" title="function not covered" >(e</span>rr: Error) =&gt; {
+<span class="cstat-no" title="statement not covered" >                    reject(er</span>r);
+                });
+        });
+    }
+&nbsp;
+    createScanResults(): Promise&lt;ScanResultModel[]&gt; {
+        return new Promise((resolve, reject) =&gt; {
+            if (!this.files || this.files.length === 0) {
+                const err: Error = new Error("No files specified for scanning");
+                reject(err);
+            }
+            Application.findById(this.appId)
+                .then((application: ApplicationModel) =&gt; {
+                    if (!application) reject(new ApplicationError(`Application config for app id ${this.appId} not found`, 404));
+                    const srDocs: ScanResultModel[] = [];
+                    this.files.forEach((file: any) =&gt; {
+                        srDocs.push(new ScanResult({
+                            application: application,
+                            fileName: file.path,
+                            originalFileName: file.originalFilename,
+                            fileSize: file.size,
+                            scans: [],
+                            quarantined: false,
+                            forwarded: false,
+                            processingErrors: []
+                        }));
+                    });
+                    return ScanResult.create(srDocs);
+                })
+                .then((scanResults: ScanResultModel[]) =&gt; {
+                    resolve(scanResults);
+                })
+                .catch((err) =&gt; {
+                    reject(err);
+                });
+        });
+    }
+<span class="fstat-no" title="function not covered" ></span>
+    forw<span class="cstat-no" title="statement not covered" >ardFiles(scanResult<span class="fstat-no" title="function not covered" >s:</span> ScanResultModel[]): Promise&lt;ScanResultModel[]&gt; {</span>
+        return new Promise((resolve, reject) =&gt; {
+            // Filter out <span class="cstat-no" title="statement not covered" >inf</span>ected files from being forwarded
+            const files: [stri<span class="cstat-no" title="statement not covered" >ng,</span> string][] = [];
+<span class="cstat-no" title="statement not covered" >            const fileNames: str<span class="fstat-no" title="function not covered" >in</span>g[] = [];</span>
+            scanResults.forEach<span class="cstat-no" title="statement not covered" >((scan</span>Result: ScanResultModel) =&gt; {
+<span class="cstat-no" title="statement not covered" >                let infected: boolean = f<span class="fstat-no" title="function not covered" >al</span>se;</span>
+                scan<span class="cstat-no" title="statement not covered" >Result.scans.forEach((scan: AVResult) =&gt; {</span>
+                    if (<span class="cstat-no" title="statement not covered" >scan.result) infe</span>cted = true;
+                });
+<span class="cstat-no" title="statement not covered" >                if (!infected) {</span>
+<span class="cstat-no" title="statement not covered" >                    files.push([scanResult.fileName, scanResult.originalFileName]);</span>
+<span class="cstat-no" title="statement not covered" >                    fileNames.push(scanResult.fileName);</span>
+                }
+            });
+<span class="cstat-no" title="statement not covered" >            if (files.length === 0) resolve(scanResults);</span>
+            Appl<span class="cstat-no" title="statement not covered" >ication.findById(this.</span>appId)
+<span class="cstat-no" title="statement not covered" >                .populate("forwardConfigs")</span>
+                .then((application: ApplicationModel) =&gt; {
+                    as<span class="fstat-no" title="function not covered" >yn</span>c.map(application.forwardConfigs, (forwardConfig: ForwardConfigModel, callback) =&gt; {
+<span class="cstat-no" title="statement not covered" >                        const forwardService: ForwardS<span class="fstat-no" title="function not covered" >er</span>vice = ForwardServiceFactory.getForwardService(forwardConfig);</span>
+                        forwardService.forw<span class="cstat-no" title="statement not covered" >ardFiles(files, callback);</span>
+<span class="cstat-no" title="statement not covered" >                    }, (err: Error) =&gt; {</span>
+<span class="fstat-no" title="function not covered" ></span>                        if (err) reject(err);
+<span class="cstat-no" title="statement not covered" >                        scanResults.forEach((scanResult: ScanResultModel) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                           if (fileNa</span>mes.indexOf(scanResult.fileName) != -1) scanResult.forwarded = true;
+<span class="cstat-no" title="statement not covered" >                        });<span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" >                        resolve(scanResults);</span>
+                    });<span class="cstat-no" title="statement not covered" ></span>
+                });
+        });<span class="cstat-no" title="statement not covered" ></span>
+    }
+&nbsp;
+    saveScanResults(scanResults: ScanResultModel[]): Promise&lt;ScanResultModel[]&gt; {
+        return new Promise((resolve, reject) =&gt; {
+<span class="fstat-no" title="function not covered" ></span>           async.map(scanResults, (scanResult: ScanResultModel, callback) =&gt; {
+<span class="cstat-no" title="statement not covered" >                scanResult.<span class="fstat-no" title="function not covered" >sa</span>ve({})</span>
+<span class="cstat-no" title="statement not covered" >                    .then((scanResu<span class="fstat-no" title="function not covered" >lt</span>: ScanResultModel) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        callback(undefined, scanResult);</span>
+                    })<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" >                    .catch((err: Error) =&gt; {</span>
+                       callback(err);
+                    });<span class="fstat-no" title="function not covered" ></span>
+           }, (err: <span class="cstat-no" title="statement not covered" >Error, results:</span> ScanResultModel[]) =&gt; {
+               if (err) reject(err);
+<span class="fstat-no" title="function not covered" >               el</span>se resolve(results);
+           });<span class="cstat-no" title="statement not covered" ></span>
+        });<span class="cstat-no" title="statement not covered" ></span>
+    }
+<span class="cstat-no" title="statement not covered" ></span>
+    getAntiVirusTier(): Promise&lt;AntiVirusTierModel&gt; {
+        return new Promise((resolve, reject) =&gt; {
+            Application.findById(this.appId)
+<span class="fstat-no" title="function not covered" ></span>                .then((application: ApplicationModel) =&gt; {
+<span class="cstat-no" title="statement not covered" >                    if (!ap<span class="fstat-no" title="function not covered" >pl</span>ication) reject(new Error(`Unknown application with id ${this.appId}`));</span>
+<span class="cstat-no" title="statement not covered" >                    return User.findById(application.user);</span>
+                })<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" >                .then((user: UserModel) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                    return Subscription.findOne()</span>
+<span class="cstat-no" title="statement not covered" >                        .where("user")</span>
+                        .equals(user._id)
+<span class="fstat-no" title="function not covered" ></span>                        .where("status")
+<span class="cstat-no" title="statement not covered" >                        .equals("ACTIVE")</span>
+                        .populate("plan")
+                        .exec();
+                })
+                .then((subscription: SubscriptionModel) =&gt; {
+                    if (!subscription) reject(new Error("No active subscriptions found, upload forbidden!"));
+                    return Plan.findById(subscription.plan._id).populate("avTier").exec();
+                })
+                .then(<span class="fstat-no" title="function not covered" >(p</span>lan: PlanModel) =&gt; {
+<span class="cstat-no" title="statement not covered" >                    resolve(plan.avTier);</span>
+                })<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >                .catch((err: Error) =&gt; {</span>
+                    reject(err);
+                });<span class="fstat-no" title="function not covered" ></span>
+        });<span class="cstat-no" title="statement not covered" ></span>
+    }
+}<span class="fstat-no" title="function not covered" ></span></pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Nov 22 2017 21:02:17 GMT-0800 (PST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
